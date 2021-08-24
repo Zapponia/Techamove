@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/color_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgUserProfile"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
+                android:elevation="3dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_defualt" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="20dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="7dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp">
+
+                    <EditText
+                        android:background="@color/transparent"
+                        android:id="@+id/edtName"
+                        style="@style/textBlack19Bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Navine Acotanza" />
+
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        style="@style/textBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="nevine789@gmail.com" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.6dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@color/edtHintLigntBlack" />
+
+                    <TextView
+                        style="@style/textLigtBlue19Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/setting_change_language" />
+
+                    <RadioGroup
+                        android:id="@+id/radioLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-5dp"
+                        android:layout_marginTop="10dp">
+
+                        <RadioButton
+                            android:id="@+id/radioEnglish"
+                            style="@style/text15Normal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/setting_english"
+                            android:theme="@style/radioButton" />
+
+                        <RadioButton
+                            android:id="@+id/radioDenish"
+                            style="@style/text15Normal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/setting_danish"
+                            android:theme="@style/radioButton" />
+
+                        <RadioButton
+                            android:id="@+id/radioGerman"
+                            style="@style/text15Normal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="20dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="@string/setting_german"
+                            android:theme="@style/radioButton" />
+                    </RadioGroup>
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        style="@style/btnBlueBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:layout_marginBottom="30dp"
+                        android:text="@string/addcard_save" />
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </FrameLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

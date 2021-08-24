@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imgUserProfile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:elevation="3dp"
+        android:src="@drawable/icon_plan" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="35dp"
+        android:paddingBottom="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/plan_bg"
+            android:elevation="8dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="80sp"
+            android:paddingBottom="80dp">
+
+            <TextView
+                android:id="@+id/txtPlanName"
+                style="@style/textWhite15Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/violate"
+                android:elevation="2dp"
+                android:fontFamily="@font/nunito_black"
+                android:paddingLeft="10dp"
+                android:paddingTop="7dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="7dp"
+                android:text="@string/lbl_yearly" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30sp"
+                android:layout_marginBottom="30sp"
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtPrice"
+                    style="@style/textWhite15Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/nunito_bold"
+                    android:includeFontPadding="false"
+                    android:text="180"
+                    android:textSize="48sp" />
+
+                <TextView
+                    android:id="@+id/txtCurrencySys"
+                    style="@style/textWhite15Regular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/nunito_bold"
+                    android:gravity="top"
+                    android:includeFontPadding="false"
+                    android:paddingLeft="8dp"
+                    android:paddingTop="11dp"
+                    android:text="@string/dollor_sysmblo"
+                    android:textSize="20sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txtPlanDisc"
+                style="@style/textWhite15Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:text="Communication and Personal marketing app platform" />
+
+        </LinearLayout>
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        style="@style/btnWhiteBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:elevation="10dp"
+        android:paddingLeft="70sp"
+        android:paddingRight="70sp"
+        android:text="@string/plan_submit" />
+
+</FrameLayout>

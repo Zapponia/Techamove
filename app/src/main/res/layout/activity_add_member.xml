@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/color_toolbar" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="7dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="15dp"
+            android:paddingTop="20dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="20sp">
+
+            <TextView
+                style="@style/textLigtBlue15Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_full_name" />
+
+            <EditText
+                android:id="@+id/edtFullName"
+                style="@style/edtBlack15Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/edt_enter_full_name"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
+
+            <TextView
+                style="@style/textLigtBlue15Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/signup_email" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                style="@style/edtBlack15Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="@string/edt_enter_email"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                style="@style/textLigtBlue15Regular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/login_mobile_number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_background"
+                android:orientation="horizontal">
+
+                <com.rilixtech.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    app:ccp_textColor="@color/black"
+                    app:ccp_textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/edtMobile"
+                    style="@style/edtBlack15Regular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/edt_enter_mobile_number"
+                    android:imeOptions="actionNext"
+                    android:inputType="phone" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAddMember"
+                style="@style/btnBlueBold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/btn_add_new_contact" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pageBackground"
+    android:orientation="vertical">
+
+    <include layout="@layout/color_toolbar" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:orientation="vertical"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp">
+
+            <ImageView
+                android:id="@+id/imgQrCode"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5sp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/qr_code" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    style="@style/textBlackToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbl_my_id"
+                    android:textColor="@color/red" />
+
+                <TextView
+                    android:id="@+id/txtUserId"
+                    style="@style/textBlackToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/red" />
+
+            </LinearLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="5dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20sp"
+                    android:orientation="vertical"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="20sp">
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/signup_full_name" />
+
+                    <EditText
+                        android:id="@+id/edtFullName"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/edt_enter_full_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/signup_email" />
+
+                    <EditText
+                        android:id="@+id/edtEmail"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/edt_enter_email"
+                        android:imeOptions="actionNext"
+                        android:inputType="textEmailAddress" />
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/login_mobile_number" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/edittext_background"
+                        android:orientation="horizontal">
+
+                        <com.rilixtech.CountryCodePicker
+                            android:id="@+id/ccp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:paddingLeft="5dp"
+                            app:ccp_textColor="@color/black"
+                            app:ccp_textSize="15sp" />
+
+                        <EditText
+                            android:id="@+id/edtMobile"
+                            style="@style/edtBlack15Regular"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            android:hint="@string/edt_enter_mobile_number"
+                            android:imeOptions="actionNext"
+                            android:inputType="numberDecimal" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/addcard_business_name" />
+
+                    <EditText
+                        android:id="@+id/edtBusinessName"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/edt_enter_bussiness_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text" />
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/addcard_business_services" />
+
+                    <EditText
+                        android:id="@+id/edtBusinessservice"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:hint="@string/edt_enter_bussines_service"
+                        android:imeOptions="actionNext"
+                        android:inputType="textMultiLine"
+                        android:maxLines="3" />
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/addcard_social_media" />
+
+
+                    <EditText
+                        android:id="@+id/edtFacebook"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:drawableRight="@drawable/ic_fb"
+                        android:drawablePadding="5dp"
+                        android:hint="@string/edt_facebook_link"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+                    <EditText
+                        android:id="@+id/edtLinkedin"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:drawableRight="@drawable/ic_in"
+                        android:drawablePadding="5dp"
+                        android:hint="@string/edt_enter_linkedin_link"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+                    <EditText
+                        android:id="@+id/edtGmail"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:drawableRight="@drawable/ic_google"
+                        android:drawablePadding="5dp"
+                        android:hint="@string/edt_enter_gmail_link"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+                    <EditText
+                        android:id="@+id/edtTwitter"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:drawableRight="@drawable/ic_twitter"
+                        android:drawablePadding="5dp"
+                        android:hint="@string/edt_enter_twitter_link"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+                    <EditText
+                        android:id="@+id/edtInstagram"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:drawableRight="@drawable/ic_insta"
+                        android:drawablePadding="5dp"
+                        android:hint="@string/edt_enter_instagram_link"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+
+                    <TextView
+                        style="@style/textLigtBlue15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/addcard_website_link" />
+
+
+                    <EditText
+                        android:id="@+id/edtWebsite"
+                        style="@style/edtBlack15Regular"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:drawableRight="@drawable/ic_domai"
+                        android:drawablePadding="5dp"
+                        android:hint="@string/edt_enter_website_name"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLines="2" />
+
+                    <Button
+                        android:id="@+id/btnSave"
+                        style="@style/btnBlueBold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="@string/addcard_save" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

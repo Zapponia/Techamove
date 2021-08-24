@@ -1,0 +1,138 @@
+<resources>
+    <string name="app_name" translatable="false">TechAmove</string>
+    <string name="splash_app_name" translatable="false">TechAmove</string>
+
+    <string name="logout">Log Out</string>
+    <string name="logout_msg">Are you sure you want to logout ?</string>
+    <string name="lable_yes">Yes</string>
+    <string name="lable_no">No</string>
+    <string name="lable_ok">Ok</string>
+    <string name="lable_cancel">Cancel</string>
+
+    <string name="login_signin">Sign In</string>
+    <string name="login_mobile_number">Mobile Number</string>
+    <string name="edt_enter_mobile_number">Enter mobile number</string>
+    <string name="login_dont_have_account">Don\'t have an account?</string>
+
+    <string name="mobile_verify_otp">Verify OTP</string>
+    <string name="mobile__code_vefify">Please type the verification code sent to</string>
+    <string name="mobile_resend_code_in">Re-send code in</string>
+    <string name="lable_continue">Continue</string>
+
+    <string name="title_sign_up">Sign Up</string>
+    <string name="signup_full_name">Full Name</string>
+    <string name="edt_enter_full_name">Enter full name</string>
+    <string name="signup_email">Email</string>
+    <string name="edt_enter_email">Enter e-mail</string>
+    <string name="signup_account_type">Account Type</string>
+    <string name="signup_premium_account">Premium Account</string>
+    <string name="signup_free_account">Free Account</string>
+    <string name="signup_alredy_have_account">Already have an account?</string>
+
+    <string name="dialog_enter_licence_key_to_continue">Enter licence key to continue</string>
+    <string name="dialog_licence_key">Licence Key</string>
+    <string name="edt_enter_licence_key">Enter licence key</string>
+
+    <string name="success_your_account_successfully_created">Your Account Successfully Created</string>
+    <string name="home_add_new_card">Add New Card</string>
+
+    <string name="menu_my_business_card">My Business Card</string>
+    <string name="menu_qr_scanner">QR Scanner</string>
+    <string name="menu_video_material">Video Material</string>
+    <string name="menu_save_business_card">Save Business Card</string>
+    <string name="menu_setting">Settings</string>
+    <string name="menu_privacypolicy">Privacy Policy</string>
+    <string name="menu_logout">Logout</string>
+    <string name="menu_share_business_card">Share Business Card</string>
+
+    <string name="addcard_business_name">Business Name</string>
+    <string name="addcard_business_services">Business Services</string>
+    <string name="addcard_social_media">Social Media</string>
+    <string name="addcard_website_link">Website Link</string>
+    <string name="addcard_save">Save</string>
+    <string name="edt_enter_website_name">Enter website name</string>
+    <string name="edt_enter_instagram_link">Enter instagram link</string>
+    <string name="edt_enter_gmail_link">Enter gmail link</string>
+    <string name="edt_enter_twitter_link">Enter twitter link</string>
+    <string name="edt_enter_linkedin_link">Enter linkedin link</string>
+    <string name="edt_facebook_link">Enter facebook link</string>
+    <string name="edt_enter_bussines_service">Enter business service name</string>
+    <string name="edt_enter_bussiness_name">Enter business name</string>
+    <string name="title_add_business_card">Add Business Card</string>
+    <string name="title_edit_business_card">Edit Business Card</string>
+
+    <string name="lable_share">Share</string>
+    <string name="share_connect_network">Connect / Network</string>
+
+    <string name="card_delete_msg">Are you want to sure delete this card?</string>
+    <string name="title_qr_scanner">QR Scanner</string>
+    <string name="camera_permission_message">You need to allow access permissions</string>
+
+    <string name="title_payment_plan">Payment Plan</string>
+    <string name="plan_submit">Submit</string>
+    <string name="dollor_sysmblo">$</string>
+    <string name="btn_save_business_card">Save Business Card</string>
+    <string name="title_connection">Connection</string>
+    <string name="setting_change_language">Change Language</string>
+    <string name="setting_german">Deutsche</string>
+    <string name="setting_danish">Danish</string>
+    <string name="setting_english">English</string>
+    <string name="tab_title_ownvideo">Own Video</string>
+    <string name="tab_title_shared_video">Shared Video</string>
+    <string name="lable_video">Video</string>
+
+    <string name="title_notification">Notification</string>
+    <string name="network_error_msg">We are unable to connect to the server. Please check your internet connection and try again.</string>
+
+    <string name="err_msg_profile">Please set profile picture</string>
+    <string name="err_msg_full_name">Please enter full name</string>
+    <string name="err_msg_email">Please enter email</string>
+    <string name="err_msg_invalid_email">Please enter valid email</string>
+    <string name="err_msg_mobile">Please enter mobile number</string>
+    <string name="err_msg_account_type">Please select account type</string>
+    <string name="err_msg_country_code">Please select country</string>
+    <string name="err_msg_otp_valid">Please enter valid OTP</string>
+    <string name="mobile_resend_code">Resend Code</string>
+    <string name="mobile_do_not_receive_code">Don\'t receive the verification code?</string>
+    <string name="empty_list_msg">Data is empty</string>
+    <string name="lable_try_again">Try Again</string>
+    <string name="err_msg_business_name">Please enter business name</string>
+    <string name="err_msg_business_services">Please enter services</string>
+    <string name="err_msg_select_one">Please select atleast one user</string>
+    <string name="err_msg_website">Please enter website name</string>
+    <string name="lable_social">Social</string>
+    <string name="lable_loading">Loading...</string>
+    <string name="lable_video_upload_progress">Video Upload Progress</string>
+    <string name="video_delete_msg">Are you want to sure delete this video?</string>
+    <string name="lable_camera">Camera</string>
+    <string name="lable_gallery">Gallery</string>
+    <string name="title_dialog_video_picker">Select From...</string>
+    <string name="btn_add_new_contact">Add New Contact</string>
+    <string name="add_member">Add Member</string>1
+
+    <string name="email_not_valid">User is not valid</string>
+    <string name="lbl_yearly">Yearly</string>
+
+    <string name="login_password">Password</string>
+    <string name="edt_password">Enter password</string>
+    <string name="err_msg_password">Please enter password</string>
+    <string name="edt_enter_referral_Code">Enter referral code</string>
+    <string name="signup_referral_code">Referral Code</string>
+    <string name="edt_enter_confirm_password">Enter confirm password</string>
+    <string name="signup_confirm_password">Confirm Password</string>
+    <string name="err_msg_confirm_password">Please enter confirm password</string>
+    <string name="err_msg_password_not_match">password and confirm password doesn\'t match</string>
+    <string name="lbl_my_id">My Id :</string>
+    <string name="lbl_forgot_paasword">Forgot Password ?</string>
+    <string name="title_forgot_password">Forgot Password</string>
+    <string name="lbl_old_password">Old Password</string>
+    <string name="edt_enter_old_password">Enter old password</string>
+    <string name="lbl_new_password">New Password</string>
+    <string name="edt_enter_new_password">Enter new password</string>
+    <string name="menu_change_password">Change Password</string>
+    <string name="err_msg_old_password">Please enter old password</string>
+    <string name="err_msg_new_password">Please enter new password</string>
+    <string name="msg_temporary_password_">We are sending temporary password to your mail. Please log in with that temporary password.</string>
+    <string name="lbl_affiliate">Affiliate Account</string>
+
+</resources>

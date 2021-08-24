@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "724620924672",
+    "firebase_url": "https://business-crad.firebaseio.com",
+    "project_id": "business-crad",
+    "storage_bucket": "business-crad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724620924672:android:25ba6bafb3eec4034205e5",
+        "android_client_info": {
+          "package_name": "com.techamove"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724620924672-g22gll2170g4ik2l6jhfppa7k3f9l69l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techamove",
+            "certificate_hash": "3316c19b6b190b4233484320f8ae0b12bc1c61e6"
+          }
+        },
+        {
+          "client_id": "724620924672-f98j2d132bs865slejq1see7moms633s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR-VKu1ma5Oc3V6P2oTxj60neAZ3WmcWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "724620924672-f98j2d132bs865slejq1see7moms633s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
