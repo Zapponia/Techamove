@@ -62,9 +62,9 @@ public class ResponsePresenter implements ProgressedRequestBody.UploadCallbacks 
             RequestBody email = RequestBody.create(MediaType.parse("text/plain"), strEmail);
             RequestBody password = RequestBody.create(MediaType.parse("text/plain"), strPassword);
             RequestBody referralCode = RequestBody.create(MediaType.parse("text/plain"), strReferralCode);
-            RequestBody mobilenumber = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(mobile));
-            RequestBody country_Code = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(countryCode));
-            RequestBody accountType = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(strAccountType));
+            RequestBody mobilenumber = RequestBody.create(MediaType.parse("text/plain"), mobile);
+            RequestBody country_Code = RequestBody.create(MediaType.parse("text/plain"), countryCode);
+            RequestBody accountType = RequestBody.create(MediaType.parse("text/plain"), strAccountType);
             RequestBody purchaseid = RequestBody.create(MediaType.parse("text/plain"), "");
             RequestBody deviceType = RequestBody.create(MediaType.parse("text/plain"), Constants.DEVICE_NAME);
             RequestBody token = RequestBody.create(MediaType.parse("text/plain"), Utility.getPref(mContext, Constants.DEVICE_TOKEN, ""));
@@ -206,6 +206,7 @@ public class ResponsePresenter implements ProgressedRequestBody.UploadCallbacks 
                     .enqueue(new ResponseHandler(mContext) {
                         @Override
                         public void onSuccess(Call<ResponseBody> call, String response) {
+                            Log.e("Body", "---> " + email + " - " + password);
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 if (jsonObject.getString(Constants.SUCCESS).equals(Constants.TRUE)) {
@@ -1479,6 +1480,7 @@ public class ResponsePresenter implements ProgressedRequestBody.UploadCallbacks 
                     .enqueue(new ResponseHandler(mContext) {
                         @Override
                         public void onSuccess(Call<ResponseBody> call, String response) {
+                            Log.e("Body", "---> " + name);
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 if (jsonObject.getString(Constants.SUCCESS).equals(Constants.TRUE)) {
@@ -1984,7 +1986,7 @@ public class ResponsePresenter implements ProgressedRequestBody.UploadCallbacks 
                                 JSONObject jsonObject = new JSONObject(response);
                                 if (jsonObject.getString(Constants.SUCCESS).equals(Constants.TRUE)) {
                                     Utility.customToast(mContext, jsonObject.getString(Constants.MESSAGE));
-                                    responseListener.onSuccessHandler(response, Constants.API_SHAREVIDEODELETE);
+                                    responseListener.onSuccessHandler(response, Constants.API_FORGOT_PASSWORD);
                                 } else {
                                     if (!((Activity) mContext).isFinishing()) {
                                         AlertDialog.Builder builder1 = new AlertDialog.Builder(mContext);

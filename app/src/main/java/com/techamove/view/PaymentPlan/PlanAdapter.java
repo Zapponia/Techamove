@@ -2,6 +2,7 @@ package com.techamove.view.PaymentPlan;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,18 +26,23 @@ public class PlanAdapter extends RecyclerView.Adapter<PlanAdapter.ViewHolder> {
 
     public PlanAdapter(Context mContext) {
         this.mContext = mContext;
+        Log.e("Here", "PlanAdapter Function");
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Log.e("Here", "onCreateViewHolder - Start");
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_plan, parent, false);
+        Log.e("Here", "onCreateViewHolder - End");
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
+        Log.e("Here", "onBindViewHolder - Start");
         SkuDetailsModel model = arraySkuDetails.get(position);
         holder.txtPrice.setText(model.mPrice);
+        Log.e("Txt", "---> " + holder.txtPrice);
         holder.txtCurrencySys.setText(model.mPriceCurrencyCode);
         holder.txtPlanDisc.setText(model.mDescription);
         if ("com.subscription.techamove.affiliate".equals(model.mSku)) {

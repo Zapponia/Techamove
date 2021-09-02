@@ -102,19 +102,25 @@ public class NewLoginActivity extends AppCompatActivity implements ResponseListe
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);
             } else {
-                if (model.data.accountStatus.equals("0")) {
-                    Intent i = new Intent(mContext, PaymentPlanActivity.class);
-                    i.putExtra(Constants.EMAIL, model.data.email);
-                    startActivity(i);
-                } else if (model.data.accountStatus.equals("1") && model.data.status.equals("0")) {
-                    dialogLicence();
-                } else {
-                    saveData(model);
-                    Intent i = new Intent(mContext, HomeActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(i);
-                }
+                saveData(model);
+                Intent i = new Intent(mContext, HomeActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(i);
+
+//                if (model.data.accountStatus.equals("0")) {
+//                    Intent i = new Intent(mContext, PaymentPlanActivity.class);
+//                    i.putExtra(Constants.EMAIL, model.data.email);
+//                    startActivity(i);
+//                } else if (model.data.accountStatus.equals("1") && model.data.status.equals("0")) {
+//                    dialogLicence();
+//                } else {
+//                    saveData(model);
+//                    Intent i = new Intent(mContext, HomeActivity.class);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                    startActivity(i);
+//                }
             }
         } else if (apiTag.equalsIgnoreCase(Constants.API_LICENSEVERIFY)) {
             saveData(model);

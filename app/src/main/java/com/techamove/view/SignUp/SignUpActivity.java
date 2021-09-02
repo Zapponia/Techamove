@@ -38,6 +38,7 @@ import com.techamove.Utils.Utility;
 import com.techamove.view.Login.NewLoginActivity;
 import com.techamove.view.PaymentPlan.PaymentPlanActivity;
 import com.techamove.view.ScanBusinessCard.ScanBusinessCardActivity;
+import com.techamove.view.UserModel;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -65,10 +66,6 @@ public class SignUpActivity extends AppCompatActivity implements ResponseListene
     EditText edtMobile;
     @BindView(R.id.edtReferralCode)
     EditText edtReferralCode;
-    @BindView(R.id.radioPremium)
-    RadioButton radioPremium;
-    @BindView(R.id.radioFree)
-    RadioButton radioFree;
     @BindView(R.id.btnSignUp)
     Button btnSignUp;
     @BindView(R.id.frameLayout)
@@ -96,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity implements ResponseListene
     Context mContext;
     private static final int ASK_MULTIPLE_PERMISSION_REQUEST_CODE = 111;
     File file;
-    String profilePath = "", strAccountType = "", countryCode = "";
+    String profilePath = "", strAccountType = "1", countryCode = "";
     ResponsePresenter presenter;
 
 
@@ -111,19 +108,6 @@ public class SignUpActivity extends AppCompatActivity implements ResponseListene
     }
 
     private void iniview() {
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == R.id.radioPremium) {
-                    strAccountType = Constants.PREMIUM_ACCOUNT;
-                } else if (checkedId == R.id.radioFree) {
-                    strAccountType = Constants.FREE_ACCOUNT;
-                } else if (checkedId == R.id.radioAffiliate) {
-                    strAccountType = Constants.FREE_AFFILIATE;
-                }
-            }
-        });
-
         ccp.setOnCountryChangeListener(new CountryCodePicker.OnCountryChangeListener() {
             @Override
             public void onCountrySelected(Country selectedCountry) {
@@ -164,9 +148,9 @@ public class SignUpActivity extends AppCompatActivity implements ResponseListene
                 } else if (strAccountType.equals("")) {
                     Utility.customToast(mContext, mContext.getResources().getString(R.string.err_msg_account_type));
                 } else {
-                    if (strAccountType.equals("2")) {
+                    if (strAccountType.equals("1")) {
                         presenter.gsonRegister(profilePath, edtFullName.getText().toString().trim(), edtEmail.getText().toString().trim(),
-                                countryCode, edtMobile.getText().toString().trim(), strAccountType, edtPassword.getText().toString().trim(), edtReferralCode.getText().toString());
+                                countryCode, edtMobile.getText().toString().trim(), strAccountType, edtPassword.getText().toString().trim(), edtReferralCode.getText().toString().trim());
                     } else {
                         // TODO: 06/03/2020 --->  check user email exit or not
                         presenter.gsonCheckEmailExit(edtEmail.getText().toString().trim());

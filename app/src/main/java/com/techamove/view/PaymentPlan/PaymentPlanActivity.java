@@ -99,7 +99,6 @@ public class PaymentPlanActivity extends AppCompatActivity implements ResponseLi
         if (Constants.SIGNUPACTIVITY.equals(strIdentification)) {
             strAccountType = modelSignup.AccountType;
         } else {
-
             strAccountType = getIntent().getStringExtra(Constants.ACCOUNTTYPE);
         }
 
@@ -306,8 +305,8 @@ public class PaymentPlanActivity extends AppCompatActivity implements ResponseLi
                 strPackageName = purchase.getSku();
 
                 if (Constants.SIGNUPACTIVITY.equalsIgnoreCase(strIdentification)) {
-                    presenter.gsonRegister(modelSignup.ProfilePath, modelSignup.FullName, modelSignup.Email,
-                            modelSignup.CountryCode, modelSignup.Mobile, modelSignup.AccountType, modelSignup.Password, modelSignup.ReferralCode);
+                    //presenter.gsonRegister(modelSignup.ProfilePath, modelSignup.FullName, modelSignup.Email,
+                    //        modelSignup.CountryCode, modelSignup.Mobile, modelSignup.AccountType, modelSignup.Password, modelSignup.ReferralCode);
                 } else {
                     if (purchase.getSku().equalsIgnoreCase("com.subscription.techamove.affiliate")) {
                         presenter.gsonpurchase(strEmail, purchase.getSku(), "affiliate");

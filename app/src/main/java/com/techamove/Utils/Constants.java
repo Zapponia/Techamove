@@ -14,7 +14,7 @@ public class Constants {
     public static final String API_LOGIN = "login";
     public static final String API_CUSTOMERS = "customers";
     public static final String API_SHENDSMS = "sendsms";
-    public static final String API_REGISTER = "gsonRegister";
+    public static final String API_REGISTER = "register";
     public static final String API_VERIFYOTP = "VerifytOtp";
     public static final String API_SHOWCARDLISt = "showcardlist";
     public static final String API_ADDNEWCARD = "addnewcard";
@@ -30,6 +30,7 @@ public class Constants {
     public static final String API_SHARE_VIDEO = "sharevideos";
     public static final String API_OWNVIDEO = "ownvideo";
     public static final String API_SHARE_VIDEO_LIST = "share_videos_list";
+    public static final String API_FORGOT_PASSWORD = "forgot-password";
 
     public static final String API_PURCHASE = "purchase";
     public static final String API_LICENSEVERIFY = "licenseverify";

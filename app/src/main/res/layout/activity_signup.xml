@@ -251,46 +251,11 @@
                             </LinearLayout>
 
 
-                            <TextView
-                                style="@style/textLigtBlue15Regular"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:text="@string/signup_account_type" />
-
                             <RadioGroup
                                 android:id="@+id/radioGroup"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp">
-
-                                <RadioButton
-                                    android:id="@+id/radioAffiliate"
-                                    style="@style/text15Normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:paddingLeft="20dp"
-                                    android:text="@string/lbl_affiliate"
-                                    android:theme="@style/radioButton" />
-
-                                <RadioButton
-                                    android:id="@+id/radioPremium"
-                                    style="@style/text15Normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:paddingLeft="20dp"
-                                    android:text="@string/signup_premium_account"
-                                    android:theme="@style/radioButton" />
-
-                                <RadioButton
-                                    android:id="@+id/radioFree"
-                                    style="@style/text15Normal"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:paddingLeft="20dp"
-                                    android:text="@string/signup_free_account"
-                                    android:theme="@style/radioButton" />
-                            </RadioGroup>
+                                android:layout_marginTop="5dp"/>
 
                             <Button
                                 android:id="@+id/btnSignUp"
