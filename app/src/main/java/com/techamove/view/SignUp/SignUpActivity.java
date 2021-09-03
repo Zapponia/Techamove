@@ -93,7 +93,7 @@ public class SignUpActivity extends AppCompatActivity implements ResponseListene
     Context mContext;
     private static final int ASK_MULTIPLE_PERMISSION_REQUEST_CODE = 111;
     File file;
-    String profilePath = "", strAccountType = "1", countryCode = "";
+    String profilePath = "", strAccountType = "2", countryCode = "";
     ResponsePresenter presenter;
 
 
@@ -148,7 +148,7 @@ public class SignUpActivity extends AppCompatActivity implements ResponseListene
                 } else if (strAccountType.equals("")) {
                     Utility.customToast(mContext, mContext.getResources().getString(R.string.err_msg_account_type));
                 } else {
-                    if (strAccountType.equals("1")) {
+                    if (strAccountType.equals("2")) {
                         presenter.gsonRegister(profilePath, edtFullName.getText().toString().trim(), edtEmail.getText().toString().trim(),
                                 countryCode, edtMobile.getText().toString().trim(), strAccountType, edtPassword.getText().toString().trim(), edtReferralCode.getText().toString().trim());
                     } else {
