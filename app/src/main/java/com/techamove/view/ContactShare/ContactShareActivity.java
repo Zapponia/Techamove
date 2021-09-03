@@ -22,7 +22,6 @@ import com.techamove.Response.ResponseListener;
 import com.techamove.Response.ResponsePresenter;
 import com.techamove.Utils.Constants;
 import com.techamove.Utils.Utility;
-import com.techamove.view.AddMember.AddMemberActivity;
 import com.techamove.view.BusinessCardVideo.BusinessCardVideoActivity;
 import com.techamove.view.Home.HomeActivity;
 import com.techamove.view.Login.CustomerDataModel;
@@ -40,8 +39,6 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
     ImageView imgDrawer;
     @BindView(R.id.txtTitle)
     TextView txtTitle;
-    @BindView(R.id.txtAddMember)
-    TextView txtAddMember;
     @BindView(R.id.rvGroup)
     RecyclerView rvGroup;
     @BindView(R.id.btnShare)
@@ -90,12 +87,10 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         });
         if (!TextUtils.isEmpty(strIdentification) && strIdentification.equals(Constants.HOMEPAGE)) {
             strCardId = getIntent().getStringExtra(Constants.CARDID);
-            txtAddMember.setVisibility(View.VISIBLE);
             presenter.gsonUserList(strCardId);
 
         } else if (!TextUtils.isEmpty(strIdentification) && strIdentification.equals(Constants.VIDEO_RECORDER_ACTIVITY)) {
             strVideoId = getIntent().getStringExtra(Constants.VIDEOID);
-            txtAddMember.setVisibility(View.VISIBLE);
             presenter.gsonVideoUserList(strVideoId);
         }
     }
@@ -212,12 +207,6 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         }
     }
 
-    @OnClick(R.id.txtAddMember)
-    void onAddMember() {
-        Intent i = new Intent(mContext, AddMemberActivity.class);
-        startActivityForResult(i, 123);
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
