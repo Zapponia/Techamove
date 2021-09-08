@@ -3,9 +3,14 @@ package com.techamove.view.ContactShare;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,19 +19,26 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.techamove.R;
 import com.techamove.Response.ResponseListener;
 import com.techamove.Response.ResponsePresenter;
 import com.techamove.Utils.Constants;
 import com.techamove.Utils.Utility;
 import com.techamove.view.BusinessCardVideo.BusinessCardVideoActivity;
+import com.techamove.view.Home.CardListModel;
 import com.techamove.view.Home.HomeActivity;
 import com.techamove.view.Login.CustomerDataModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,8 +53,6 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
     TextView txtTitle;
     @BindView(R.id.rvGroup)
     RecyclerView rvGroup;
-    @BindView(R.id.btnShare)
-    Button btnShare;
     @BindView(R.id.rlmain)
     RelativeLayout rlmain;
     @BindView(R.id.txtError)
@@ -57,7 +67,6 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
     String strIdentification = "", strCardId = "", strVideoId = "";
     ResponsePresenter presenter;
     CustomerDataModel modelCustomerData;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,11 +84,14 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         imgDrawer.setImageDrawable(mContext.getResources().getDrawable(R.drawable.ic_white_left));
         txtTitle.setText(mContext.getResources().getString(R.string.lable_share));
 
+        rvGroup.setLayoutManager(new LinearLayoutManager(this));
         shareAdapter = new ContactShareAdapter(mContext);
         rvGroup.setHasFixedSize(true);
-        rvGroup.setLayoutManager(new LinearLayoutManager(this));
         rvGroup.setAdapter(shareAdapter);
-        shareAdapter.setEventListener(new ContactShareAdapter.EventListener() {
+
+        presenter.gsonCardList();
+
+/*        shareAdapter.setEventListener(new ContactShareAdapter.EventListener() {
             @Override
             public void onItemClick(boolean isSelected, int position) {
                 shareAdapter.changeSelection(position, true);
@@ -93,9 +105,11 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
             strVideoId = getIntent().getStringExtra(Constants.VIDEOID);
             presenter.gsonVideoUserList(strVideoId);
         }
+        */
+
     }
 
-    @OnClick({R.id.imgDrawer, R.id.btnShare})
+    @OnClick({R.id.imgDrawer})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.imgDrawer:
@@ -108,7 +122,7 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
                 }
 
                 break;
-            case R.id.btnShare:
+            /*case R.id.btnShare:
                 if (!shareAdapter.getSelectedOne()) {
                     Utility.customToast(mContext, mContext.getResources().getString(R.string.err_msg_select_one));
                 } else {
@@ -118,28 +132,36 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
                         presenter.gsonShareVideo(strVideoId, shareAdapter.getSelectedIds());
                     }
                 }
-                break;
+                break;*/
         }
     }
 
     @Override
     public void onSuccessHandler(String response, String apiTag) {
-        if (apiTag.equals(Constants.API_PREMIUM)) {
+        if (apiTag.equals(Constants.API_SHOWCARDLISt)) {
+            rlmain.setVisibility(View.VISIBLE);
+            llError.setVisibility(View.GONE);
+            CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
+            shareAdapter.addData(cardListModel.data);
+        }
+/*        if (apiTag.equals(Constants.API_PREMIUM)) {
             rlmain.setVisibility(View.VISIBLE);
             llError.setVisibility(View.GONE);
             ContectModel model = Utility.getModelData(response, ContectModel.class);
-            shareAdapter.addData(model.data);
+            CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
+            shareAdapter.addData(cardListModel.data);
             presenter.gsonAllRecord();
         } else if (apiTag.equals(Constants.API_VIDEO_PREMIUM)) {
             rlmain.setVisibility(View.VISIBLE);
             llError.setVisibility(View.GONE);
             ContectModel model = Utility.getModelData(response, ContectModel.class);
-            shareAdapter.addData(model.data);
+            CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
+            shareAdapter.addData(cardListModel.data);
         } else if (apiTag.equals(Constants.API_SHARECARD)) {
             String strSendSms = "";
             boolean isMatches = false;
 
-            /*--------------- SEND SMS ------------------*/
+
             ArrayList<ContectModel.Datum> arrayUser = shareAdapter.getSelectedUser();
             for (int i = 0; i < arrayUser.size(); i++) {
                 for (int j = 0; j < modelCustomerData.data.size(); j++) {
@@ -178,7 +200,7 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             mContext.startActivity(i);
             ((Activity) mContext).finish();
-        }
+        }*/
 
     }
 
@@ -198,7 +220,7 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         imgTryAgain.setVisibility(View.VISIBLE);
     }
 
-    @OnClick(R.id.imgTryAgain)
+/*    @OnClick(R.id.imgTryAgain)
     public void tryAgain() {
         if (!TextUtils.isEmpty(strIdentification) && strIdentification.equals(Constants.HOMEPAGE)) {
             presenter.gsonUserList(strCardId);
@@ -220,5 +242,5 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
                 }
             }
         }
-    }
+    }*/
 }

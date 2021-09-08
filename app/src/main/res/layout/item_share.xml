@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     app:cardCornerRadius="5dp"
     app:cardElevation="5dp"
 
@@ -10,38 +10,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="10dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgUserProfile"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_vertical"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_defualt" />
-
-        <TextView
-            android:id="@+id/txtName"
-            style="@style/textBlack16Regular"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:layout_weight="1"
-            android:text="yvenide belizire" />
-
         <ImageView
-            android:id="@+id/imgUncheck"
-            android:layout_width="30sp"
-            android:layout_height="30sp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/uncheck" />
+            android:id="@+id/imgQrCode"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/qr_code" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

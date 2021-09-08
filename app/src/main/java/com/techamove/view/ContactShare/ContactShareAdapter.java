@@ -2,6 +2,9 @@ package com.techamove.view.ContactShare;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +13,13 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.techamove.R;
 import com.techamove.Utils.Utility;
+import com.techamove.view.Home.CardListModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +31,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapter.ViewHolder> {
     Context mContext;
 
-    ArrayList<ContectModel.Datum> arrayList = new ArrayList<>();
+    //ArrayList<ContectModel.Datum> arrayList = new ArrayList<>();
+    List<CardListModel.Datum> data = new ArrayList<>();
 
     public ContactShareAdapter(Context mContext) {
         this.mContext = mContext;
@@ -37,7 +46,26 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        if (arrayList.get(position).isSelected) {
+        CardListModel.Datum model = data.get(position);
+
+        QRCodeWriter writer = new QRCodeWriter();
+        try {
+            BitMatrix bitMatrix = writer.encode(model.id, BarcodeFormat.QR_CODE, 120, 120);
+            int width = bitMatrix.getWidth();
+            int height = bitMatrix.getHeight();
+            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+            for (int x = 0; x < width; x++) {
+                for (int y = 0; y < height; y++) {
+                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                }
+            }
+            holder.imgQrCode.setImageBitmap(bmp);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+
+        /*
+                if (arrayList.get(position).isSelected) {
             holder.imgUncheck.setImageDrawable(mContext.getResources().getDrawable(R.drawable.check));
         } else {
             holder.imgUncheck.setImageDrawable(mContext.getResources().getDrawable(R.drawable.uncheck));
@@ -53,9 +81,30 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
 
             }
         });
+         */
     }
 
-    public void changeSelection(int position, boolean isMultiSel) {
+    @Override
+    public int getItemCount() {
+        return data.size();
+    }
+
+    public void addData(List<CardListModel.Datum> data) {
+        this.data = data;
+        notifyDataSetChanged();
+    }
+
+    public void itemRemoved(int cardPosition) {
+        data.remove(cardPosition);
+        notifyDataSetChanged();
+    }
+
+    public void clearData() {
+        data.clear();
+        notifyDataSetChanged();
+    }
+
+/*    public void changeSelection(int position, boolean isMultiSel) {
         for (int i = 0; i < arrayList.size(); i++) {
             if (position == i) {
                 arrayList.get(i).isSelected = !arrayList.get(i).isSelected;
@@ -117,15 +166,11 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
 
         return false;
     }
-
+*/
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.imgUserProfile)
-        CircleImageView imgUserProfile;
-        @BindView(R.id.txtName)
-        TextView txtName;
-        @BindView(R.id.imgUncheck)
-        ImageView imgUncheck;
+        @BindView(R.id.imgQrCode)
+        ImageView imgQrCode;
 
         public ViewHolder(View itemView) {
             super(itemView);
