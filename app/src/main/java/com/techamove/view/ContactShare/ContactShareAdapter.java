@@ -4,6 +4,7 @@ package com.techamove.view.ContactShare;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,8 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.techamove.R;
 import com.techamove.Utils.Utility;
+import com.techamove.view.BusinessCardVideo.OwnVideoFragment;
+import com.techamove.view.BusinessCardVideo.VideoModel;
 import com.techamove.view.Home.CardListModel;
 
 import java.util.ArrayList;
@@ -31,8 +34,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapter.ViewHolder> {
     Context mContext;
 
-    //ArrayList<ContectModel.Datum> arrayList = new ArrayList<>();
-    List<CardListModel.Datum> data = new ArrayList<>();
+//    ArrayList<ContectModel.Datum> arrayList = new ArrayList<>();
+    String videoId;
+    String cardId;
+    Boolean videoQr;
 
     public ContactShareAdapter(Context mContext) {
         this.mContext = mContext;
@@ -46,23 +51,44 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        CardListModel.Datum model = data.get(position);
+        if (videoQr == true) {
+            Log.e("ID", videoId);
 
-        QRCodeWriter writer = new QRCodeWriter();
-        try {
-            BitMatrix bitMatrix = writer.encode(model.id, BarcodeFormat.QR_CODE, 120, 120);
-            int width = bitMatrix.getWidth();
-            int height = bitMatrix.getHeight();
-            Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            for (int x = 0; x < width; x++) {
-                for (int y = 0; y < height; y++) {
-                    bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+            QRCodeWriter writer = new QRCodeWriter();
+            try {
+                BitMatrix bitMatrix = writer.encode(videoId, BarcodeFormat.QR_CODE, 120, 120);
+                int width = bitMatrix.getWidth();
+                int height = bitMatrix.getHeight();
+                Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+                for (int x = 0; x < width; x++) {
+                    for (int y = 0; y < height; y++) {
+                        bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                    }
                 }
+                holder.imgQrCode.setImageBitmap(bmp);
+            } catch (WriterException e) {
+                e.printStackTrace();
             }
-            holder.imgQrCode.setImageBitmap(bmp);
-        } catch (WriterException e) {
-            e.printStackTrace();
+        } else {
+            Log.e("ID", cardId);
+
+            QRCodeWriter writer = new QRCodeWriter();
+            try {
+                BitMatrix bitMatrix = writer.encode(cardId, BarcodeFormat.QR_CODE, 120, 120);
+                int width = bitMatrix.getWidth();
+                int height = bitMatrix.getHeight();
+                Bitmap bmp = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
+                for (int x = 0; x < width; x++) {
+                    for (int y = 0; y < height; y++) {
+                        bmp.setPixel(x, y, bitMatrix.get(x, y) ? Color.BLACK : Color.WHITE);
+                    }
+                }
+                holder.imgQrCode.setImageBitmap(bmp);
+            } catch (WriterException e) {
+                e.printStackTrace();
+            }
         }
+
 
         /*
                 if (arrayList.get(position).isSelected) {
@@ -86,15 +112,28 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
 
     @Override
     public int getItemCount() {
-        return data.size();
+        //return data.size();
+        return 1;
     }
 
-    public void addData(List<CardListModel.Datum> data) {
+/*   public void addData(List<CardListModel.Datum> data) {
         this.data = data;
+        notifyDataSetChanged();
+    }*/
+
+    public void addVideoId(String video, Boolean videoQr) {
+        this.videoId = video;
+        this.videoQr = videoQr;
         notifyDataSetChanged();
     }
 
-    public void itemRemoved(int cardPosition) {
+    public void addCardId(String card, Boolean videoQr) {
+        this.cardId = card;
+        this.videoQr = videoQr;
+        notifyDataSetChanged();
+    }
+
+/*    public void itemRemoved(int cardPosition) {
         data.remove(cardPosition);
         notifyDataSetChanged();
     }
@@ -102,7 +141,23 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
     public void clearData() {
         data.clear();
         notifyDataSetChanged();
-    }
+    }*/
+
+/*    public String getSelectedIds() {
+        String str = "";
+
+        for (ContectModel.Datum spinner : arrayList) {
+            if (spinner.isSelected) {
+                str = str + spinner.id + ",";
+            }
+        }
+
+        if (str.length() > 0) {
+            str = str.substring(0, str.length() - 1);
+        }
+
+        return str;
+    }*/
 
 /*    public void changeSelection(int position, boolean isMultiSel) {
         for (int i = 0; i < arrayList.size(); i++) {
@@ -126,21 +181,7 @@ public class ContactShareAdapter extends RecyclerView.Adapter<ContactShareAdapte
         notifyDataSetChanged();
     }
 
-    public String getSelectedIds() {
-        String str = "";
 
-        for (ContectModel.Datum spinner : arrayList) {
-            if (spinner.isSelected) {
-                str = str + spinner.id + ",";
-            }
-        }
-
-        if (str.length() > 0) {
-            str = str.substring(0, str.length() - 1);
-        }
-
-        return str;
-    }
 
     public ArrayList<ContectModel.Datum> getSelectedUser() {
         ArrayList<ContectModel.Datum> arrayUser = new ArrayList<>();

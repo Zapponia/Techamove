@@ -4,6 +4,7 @@ package com.techamove.view.Home;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.ViewHolder> {
         holder.txtEmail.setText(model.email);
         holder.txtPhone.setText("" + model.countryCode + model.mobile_number);
         holder.txtWebsite.setText(model.website_link);
+        Log.e("ID", "ID: " + model.id);
+        Log.e("User ID", "ID: " + model.users_id);
 
         QRCodeWriter writer = new QRCodeWriter();
         try {

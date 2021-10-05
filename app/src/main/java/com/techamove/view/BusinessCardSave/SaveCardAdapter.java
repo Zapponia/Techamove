@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.techamove.R;
+import com.techamove.view.BusinessCardVideo.VideoModel;
 import com.techamove.view.Home.CardListModel;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;

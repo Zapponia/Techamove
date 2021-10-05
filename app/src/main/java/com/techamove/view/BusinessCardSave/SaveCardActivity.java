@@ -152,6 +152,18 @@ public class SaveCardActivity extends BaseActivity implements ResponseListener {
                 onFailureHandler();
             }
         }
+        if (apiTag.equals(Constants.API_SHARELIST)) {
+            rvCard.setVisibility(View.VISIBLE);
+            framBottom.setVisibility(View.GONE);
+            llError.setVisibility(View.GONE);
+            CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
+            adapter.addData(cardListModel.data);
+        } else if (apiTag.equals(Constants.API_SHARECARDDELETE)) {
+            adapter.itemRemoved(cardPosition);
+            if (adapter.getItemCount() == 0) {
+                onFailureHandler();
+            }
+        }
     }
 
     @Override

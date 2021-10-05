@@ -81,17 +81,17 @@ public class OwnVideoFragment extends Fragment implements ResponseListener {
         rvVideo.setAdapter(adapter);
         adapter.setEventListener(new VideoAdapter.EventListener() {
             @Override
-            public void onShareItem(int id) {
+            public void onShareItem(String id) {
                 Intent i = new Intent(getActivity(), ContactShareActivity.class);
                 i.putExtra(Constants.IDENTIFICATION, Constants.VIDEO_RECORDER_ACTIVITY);
-                i.putExtra(Constants.VIDEOID, String.valueOf(id));
+                i.putExtra(Constants.VIDEOID, id);
                 startActivity(i);
             }
 
             @Override
-            public void onDeleteItem(int id, int i) {
+            public void onDeleteItem(String id, int i) {
                 position = i;
-                openDeleteDialog(id);
+                //openDeleteDialog(id);
             }
 
             @Override

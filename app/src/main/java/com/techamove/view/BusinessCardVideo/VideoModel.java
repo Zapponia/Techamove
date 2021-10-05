@@ -20,10 +20,10 @@ public class VideoModel {
 
         @SerializedName("id")
         @Expose
-        public int id;
+        public String id;
         @SerializedName("users_id")
         @Expose
-        public int users_id;
+        public String users_id;
         @SerializedName("videos_url")
         @Expose
         public String videos_url;

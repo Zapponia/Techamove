@@ -36,6 +36,7 @@ import com.techamove.view.BusinessCardView.ViewBusinessCardActivity;
 import com.techamove.view.ContactShare.ContactShareActivity;
 import com.techamove.view.Notification.NotificationActivity;
 import com.techamove.view.PaymentPlan.PaymentPlanActivity;
+import com.techamove.view.UserModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -209,7 +210,7 @@ public class HomeActivity extends BaseActivity implements ResponseListener {
                     presenter.gsonCardList();
                 } else {
                     //TODO uncomment this shit
-                   /* if (!((Activity) mContext).isFinishing()) {
+/*                   if (!((Activity) mContext).isFinishing()) {
                         androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(mContext);
                         builder1.setTitle(mContext.getResources().getString(R.string.app_name));
                         builder1.setMessage(jsonObject.getString(Constants.MESSAGE));

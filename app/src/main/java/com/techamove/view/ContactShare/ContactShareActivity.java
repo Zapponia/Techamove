@@ -33,6 +33,7 @@ import com.techamove.Response.ResponsePresenter;
 import com.techamove.Utils.Constants;
 import com.techamove.Utils.Utility;
 import com.techamove.view.BusinessCardVideo.BusinessCardVideoActivity;
+import com.techamove.view.BusinessCardVideo.VideoModel;
 import com.techamove.view.Home.CardListModel;
 import com.techamove.view.Home.HomeActivity;
 import com.techamove.view.Login.CustomerDataModel;
@@ -77,6 +78,10 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         mContext = ContactShareActivity.this;
         presenter = new ResponsePresenter(mContext, this);
         strIdentification = getIntent().getStringExtra(Constants.IDENTIFICATION);
+
+        // Adds the id's to String
+        strVideoId = getIntent().getStringExtra(Constants.VIDEOID);
+        strCardId = getIntent().getStringExtra(Constants.CARDID);
         intview();
     }
 
@@ -89,23 +94,25 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         rvGroup.setHasFixedSize(true);
         rvGroup.setAdapter(shareAdapter);
 
-        presenter.gsonCardList();
+
 
 /*        shareAdapter.setEventListener(new ContactShareAdapter.EventListener() {
             @Override
             public void onItemClick(boolean isSelected, int position) {
                 shareAdapter.changeSelection(position, true);
             }
-        });
+        });*/
         if (!TextUtils.isEmpty(strIdentification) && strIdentification.equals(Constants.HOMEPAGE)) {
-            strCardId = getIntent().getStringExtra(Constants.CARDID);
-            presenter.gsonUserList(strCardId);
+            //strCardId = getIntent().getStringExtra(Constants.CARDID);
+            // Gets all users cards
+            presenter.gsonCardList();
 
         } else if (!TextUtils.isEmpty(strIdentification) && strIdentification.equals(Constants.VIDEO_RECORDER_ACTIVITY)) {
-            strVideoId = getIntent().getStringExtra(Constants.VIDEOID);
-            presenter.gsonVideoUserList(strVideoId);
+            //strVideoId = getIntent().getStringExtra(Constants.VIDEOID);
+            // Gets all users videos
+            presenter.gsonOwnVideoList();
         }
-        */
+
 
     }
 
@@ -141,8 +148,13 @@ public class ContactShareActivity extends AppCompatActivity implements ResponseL
         if (apiTag.equals(Constants.API_SHOWCARDLISt)) {
             rlmain.setVisibility(View.VISIBLE);
             llError.setVisibility(View.GONE);
-            CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
-            shareAdapter.addData(cardListModel.data);
+            Log.e("Card: ", "Is Running");
+            shareAdapter.addCardId(strCardId, false);
+        } else if (apiTag.equals(Constants.API_OWNVIDEO)) {
+            rlmain.setVisibility(View.VISIBLE);
+            llError.setVisibility(View.GONE);
+            Log.e("Video: ", "Is Running");
+            shareAdapter.addVideoId(strVideoId, true);
         }
 /*        if (apiTag.equals(Constants.API_PREMIUM)) {
             rlmain.setVisibility(View.VISIBLE);

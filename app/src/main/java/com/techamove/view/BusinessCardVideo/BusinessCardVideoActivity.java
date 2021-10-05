@@ -72,7 +72,6 @@ public class BusinessCardVideoActivity extends BaseActivity {
             tabLayout.setVisibility(View.GONE);
             imgRecoder.setVisibility(View.GONE);
             adapter.addFragment(new OwnVideoFragment().newInstance(Constants.SHAREVIDEO, 2), mContext.getResources().getString(R.string.tab_title_shared_video));
-
         } else {
             tabLayout.setVisibility(View.VISIBLE);
             imgRecoder.setVisibility(View.VISIBLE);

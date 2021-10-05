@@ -97,7 +97,6 @@ public class ShareCardActivity extends BaseActivity implements ResponseListener 
         });
 
         presenter.gsonGetShareCard();
-
     }
 
 
@@ -152,6 +151,18 @@ public class ShareCardActivity extends BaseActivity implements ResponseListener 
             CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
             adapter.addData(cardListModel.data);
         } else if (apiTag.equals(Constants.API_SHARECARDDELETE)) {
+            adapter.itemRemoved(cardPosition);
+            if (adapter.getItemCount() == 0) {
+                onFailureHandler();
+            }
+        }
+        if (apiTag.equals(Constants.API_SAVECARDLIST)) {
+            rvCard.setVisibility(View.VISIBLE);
+            framBottom.setVisibility(View.GONE);
+            llError.setVisibility(View.GONE);
+            CardListModel cardListModel = Utility.getModelData(response, CardListModel.class);
+            adapter.addData(cardListModel.data);
+        } else if (apiTag.equals(Constants.API_SAVE_CARD_DELETE)) {
             adapter.itemRemoved(cardPosition);
             if (adapter.getItemCount() == 0) {
                 onFailureHandler();

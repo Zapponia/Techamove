@@ -13,16 +13,32 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
         <ImageView
             android:id="@+id/imgQrCode"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/qr_code" />
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:translationY="50dp">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/textLightBlack14Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_weight="1"
+            android:text="Scan QR Code"
+            android:textSize="19sp" />
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -112,9 +112,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     EventListener eventListener;
 
     public interface EventListener {
-        void onShareItem(int id);
+        void onShareItem(String id);
 
-        void onDeleteItem(int id, int position);
+        void onDeleteItem(String id, int position);
 
         void onPlayItem(String videos_url);
 

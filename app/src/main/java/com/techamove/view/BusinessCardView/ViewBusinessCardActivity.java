@@ -20,6 +20,9 @@ import com.techamove.Response.ResponseListener;
 import com.techamove.Response.ResponsePresenter;
 import com.techamove.Utils.Constants;
 import com.techamove.view.BusinessCardSave.SaveCardActivity;
+import com.techamove.view.BusinessCardVideo.BusinessCardVideoActivity;
+import com.techamove.view.BusinessCardVideo.VideoModel;
+import com.techamove.view.ContactShare.ContactShareAdapter;
 import com.techamove.view.Home.CardListModel;
 import com.techamove.view.WebView.WebViewActivity;
 import com.google.gson.Gson;
@@ -72,7 +75,9 @@ public class ViewBusinessCardActivity extends AppCompatActivity implements Respo
     Context mContext;
     String strIdentification = "";
     CardListModel.Datum model;
+    VideoModel.Datum video;
     ResponsePresenter presenter;
+    ContactShareAdapter shareAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
