@@ -14,6 +14,7 @@ import com.techamove.R;
 import com.techamove.Utils.AppPreferences;
 import com.techamove.Utils.Constants;
 import com.techamove.Utils.Utility;
+import com.techamove.view.BusinessCardSave.SaveCardActivity;
 import com.techamove.view.BusinessCardShare.ShareCardActivity;
 import com.techamove.view.Home.HomeActivity;
 import com.techamove.view.Login.NewLoginActivity;
@@ -56,7 +57,7 @@ public class SplashActivity extends AppCompatActivity {
                             SplashActivity.this.finish();
                         } else {
                             if (AppPreferences.getInstance(getApplicationContext()).getAccountType().equals("2")) {
-                                Intent i = new Intent(SplashActivity.this, ShareCardActivity.class);
+                                Intent i = new Intent(SplashActivity.this, SaveCardActivity.class); // ShareCardActivity.class
                                 startActivity(i);
                                 finish();
                             } else {

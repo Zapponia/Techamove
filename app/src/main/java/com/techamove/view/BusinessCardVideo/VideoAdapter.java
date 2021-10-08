@@ -41,9 +41,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        if (strIdentification.equals(Constants.SHAREVIDEO)) {
+        /*if (strIdentification.equals(Constants.SHAREVIDEO)) {
             holder.imgShare.setVisibility(View.GONE);
-        }
+        }*/
 //        try {
 //            holder.imgVideo.setImageBitmap(retriveVideoFrameFromVideo(data.get(position).videos_url));
 //        } catch (Throwable throwable) {
@@ -51,14 +51,14 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
 //        }
         Utility.loadImageFromUrl(mContext, holder.imgVideo, data.get(position).thumbImages, R.drawable.video_placeholder);
 
-        holder.imgShare.setOnClickListener(new View.OnClickListener() {
+        /*holder.imgShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (eventListener != null) {
                     eventListener.onShareItem(data.get(position).id);
                 }
             }
-        });
+        });*/
         holder.imgDalete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,8 +96,8 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imgVideo)
         ImageView imgVideo;
-        @BindView(R.id.imgShare)
-        ImageView imgShare;
+        /*@BindView(R.id.imgShare)
+        ImageView imgShare;*/
         @BindView(R.id.imgPlay)
         ImageView imgPlay;
         @BindView(R.id.imgDalete)

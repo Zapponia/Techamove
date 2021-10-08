@@ -30,6 +30,7 @@ import com.techamove.Utils.Constants;
 import com.techamove.Utils.UriHelper;
 import com.techamove.Utils.Utility;
 import com.techamove.view.BaseActivity;
+import com.techamove.view.BusinessCardSave.SaveCardActivity;
 import com.techamove.view.BusinessCardShare.ShareCardActivity;
 import com.techamove.view.Home.HomeActivity;
 import com.techamove.view.UserModel;
@@ -138,7 +139,7 @@ public class SettingActivity extends BaseActivity implements ResponseListener {
         AppPreferences.getInstance(mContext).setLanguage(strLanguage);
 
         if (AppPreferences.getInstance(mContext).getAccountType().equals("2")) {
-            Intent i = new Intent(mContext, ShareCardActivity.class);
+            Intent i = new Intent(mContext, SaveCardActivity.class); // ShareCardActivity.class
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);

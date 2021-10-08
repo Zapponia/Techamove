@@ -22,6 +22,7 @@ import com.techamove.Response.ResponsePresenter;
 import com.techamove.Utils.AppPreferences;
 import com.techamove.Utils.Constants;
 import com.techamove.Utils.Utility;
+import com.techamove.view.BusinessCardSave.SaveCardActivity;
 import com.techamove.view.BusinessCardShare.ShareCardActivity;
 import com.techamove.view.ForgotPassword.ForgotPasswordActivity;
 import com.techamove.view.Home.HomeActivity;
@@ -97,7 +98,7 @@ public class NewLoginActivity extends AppCompatActivity implements ResponseListe
             model = Utility.getModelData(response, UserModel.class);
             if (model.data.account_type.equals("2")) {
                 saveData(model);
-                Intent i = new Intent(mContext, ShareCardActivity.class);
+                Intent i = new Intent(mContext, ShareCardActivity.class); // ShareCardActivity.class
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(i);

@@ -88,8 +88,8 @@ public class BaseActivity extends AppCompatActivity {
         if (AppPreferences.getInstance(mContext).getAccountType().equals("2")) {
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_qr_scanner), ContextCompat.getDrawable(mContext, R.drawable.ic_color_qrcode)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_save_business_card), ContextCompat.getDrawable(mContext, R.drawable.ic_color_save_card)));
-            arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_share_business_card), ContextCompat.getDrawable(mContext, R.drawable.ic_share_card)));
-            arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_video_material), ContextCompat.getDrawable(mContext, R.drawable.ic_color_video)));
+            //arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_share_business_card), ContextCompat.getDrawable(mContext, R.drawable.ic_share_card)));
+            //arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_video_material), ContextCompat.getDrawable(mContext, R.drawable.ic_color_video)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_setting), ContextCompat.getDrawable(mContext, R.drawable.ic_color_settings)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_change_password), ContextCompat.getDrawable(mContext, R.drawable.ic_password)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_privacypolicy), ContextCompat.getDrawable(mContext, R.drawable.ic_color_privacypolicy)));
@@ -116,7 +116,7 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (position == 2) {
+                    /*if (position == 2) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, ShareCardActivity.class);
@@ -124,15 +124,15 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (position == 3) {
+                    if (position == 2) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, BusinessCardVideoActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(i);
                         finish();
-                    }
-                    if (position == 4) {
+                    }*/
+                    if (position == 2) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, SettingActivity.class);
@@ -141,7 +141,7 @@ public class BaseActivity extends AppCompatActivity {
                         finish();
                         closeDrawer();
                     }
-                    if (position == 5) {
+                    if (position == 3) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, ChangePasswordActivity.class);
@@ -149,7 +149,7 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (position == 6) {
+                    if (position == 4) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, WebViewActivity.class);
@@ -164,7 +164,7 @@ public class BaseActivity extends AppCompatActivity {
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_qr_scanner), ContextCompat.getDrawable(mContext, R.drawable.ic_color_qrcode)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_video_material), ContextCompat.getDrawable(mContext, R.drawable.ic_color_video)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_save_business_card), ContextCompat.getDrawable(mContext, R.drawable.ic_color_save_card)));
-            arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_share_business_card), ContextCompat.getDrawable(mContext, R.drawable.ic_share_card)));
+            //arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_share_business_card), ContextCompat.getDrawable(mContext, R.drawable.ic_share_card)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_setting), ContextCompat.getDrawable(mContext, R.drawable.ic_color_settings)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_change_password), ContextCompat.getDrawable(mContext, R.drawable.ic_password)));
             arrDrawerlist.add(new BaseModel(mContext.getString(R.string.menu_privacypolicy), ContextCompat.getDrawable(mContext, R.drawable.ic_color_privacypolicy)));
@@ -208,15 +208,15 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (position == 4) {
+                    /*if (position == 4) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, ShareCardActivity.class);
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(i);
                         finish();
-                    }
-                    if (position == 5) {
+                    }*/
+                    if (position == 4) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, SettingActivity.class);
@@ -224,7 +224,7 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (position == 6) {
+                    if (position == 5) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, ChangePasswordActivity.class);
@@ -232,7 +232,7 @@ public class BaseActivity extends AppCompatActivity {
                         startActivity(i);
                         finish();
                     }
-                    if (position == 7) {
+                    if (position == 6) {
                         mBaseAdapter.getPos(position);
                         closeDrawer();
                         Intent i = new Intent(mContext, WebViewActivity.class);

@@ -19,6 +19,7 @@ import androidx.core.app.NotificationCompat;
 import com.techamove.R;
 import com.techamove.Utils.Constants;
 import com.techamove.Utils.Utility;
+import com.techamove.view.BusinessCardSave.SaveCardActivity;
 import com.techamove.view.BusinessCardShare.ShareCardActivity;
 import com.techamove.view.BusinessCardVideo.BusinessCardVideoActivity;
 import com.techamove.view.Home.HomeActivity;
@@ -101,7 +102,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         Intent intent;
         if (!(TextUtils.isEmpty(status)) && status.equals("1")) {
-            intent = new Intent(this, ShareCardActivity.class);
+            intent = new Intent(this, SaveCardActivity.class); // ShareCardActivity.class
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         } else if (!(TextUtils.isEmpty(status)) && status.equals("2")) {
             intent = new Intent(this, BusinessCardVideoActivity.class);

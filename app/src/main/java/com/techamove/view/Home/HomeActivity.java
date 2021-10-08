@@ -209,8 +209,8 @@ public class HomeActivity extends BaseActivity implements ResponseListener {
                 if (jsonObject.getString(Constants.SUCCESS).equals(Constants.TRUE)) {
                     presenter.gsonCardList();
                 } else {
-                    //TODO uncomment this shit
-/*                   if (!((Activity) mContext).isFinishing()) {
+                    //TODO comment/uncomment this part to add paymentplan back in
+                   if (!((Activity) mContext).isFinishing()) {
                         androidx.appcompat.app.AlertDialog.Builder builder1 = new androidx.appcompat.app.AlertDialog.Builder(mContext);
                         builder1.setTitle(mContext.getResources().getString(R.string.app_name));
                         builder1.setMessage(jsonObject.getString(Constants.MESSAGE));
@@ -229,7 +229,7 @@ public class HomeActivity extends BaseActivity implements ResponseListener {
                         androidx.appcompat.app.AlertDialog alert11 = builder1.create();
                         alert11.show();
                     }
-*/                      presenter.gsonCardList();
+                      presenter.gsonCardList();
                 }
 
             } catch (JSONException e) {
